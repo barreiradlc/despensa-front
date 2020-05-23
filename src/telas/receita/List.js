@@ -34,12 +34,24 @@ const GET = gql`
 `;
 
 
-function List({navigation}) {
+function List({navigation, route}) {
     const { data, error, loading, refetch, subscribeToMore } = useQuery(GET);
 
+
+
+    
     useEffect(() => {
         console.debug(JSON.stringify(data))
     }, [data])
+    
+    useEffect(() => {
+        if(route.params){
+            if(route.params.refresh){
+                console.log('refetch')
+                refetch()
+            }
+        }
+    }, [route])
 
     function navigateShow(item) {
         navigation.navigate('ShowReceita', {

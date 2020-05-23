@@ -1,4 +1,4 @@
-package com.despensamobile;
+package br.com.despensa;
 
 import android.app.Application;
 import android.content.Context;
@@ -67,7 +67,7 @@ public class MainApplication extends Application implements ReactApplication {
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.despensamobile.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("br.com.despensa.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

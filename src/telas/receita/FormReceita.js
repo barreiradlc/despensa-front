@@ -79,7 +79,7 @@ function FormReceita({ route, navigation }) {
 
     useEffect(() => {
         if (data) {
-            navigation.navigate('Receitas')
+            navigation.navigate('Receitas', { refresh: true })
             Utils.sweetalert(`Receita ${edit ? 'editada' : 'cadastrada'}\n\n com sucesso`, 'success', 'Sucesso')
         }
     }, [data])
@@ -221,7 +221,7 @@ function FormReceita({ route, navigation }) {
         console.debug(values.id)
         console.debug(JSON.stringify(result))
         console.debug(result, id)
-        add({ variables: { id: Number(id), receita: result } });
+        // add({ variables: { id: Number(id), receita: result } });
     }
 
     if(load){
@@ -281,7 +281,7 @@ function FormReceita({ route, navigation }) {
                     <>
                         <FormButton active={true} onPress={editReceita}>
                             <FormButtonLabel active={true}>Editar</FormButtonLabel>
-                        </FormButton>
+                    </FormButton>
                         <FormButton  >
                             <FormButtonLabel >Excluir</FormButtonLabel>
                         </FormButton>

@@ -35,6 +35,7 @@ query getReceita($id: ID!) {
       user{
           id
           fullName
+          email
       }
     }
   }  
@@ -237,7 +238,7 @@ function FormReceita({ route, navigation }) {
 
             </CardInner>
             
-            {values.user.id && user.id ?
+            {values.user.id === user.id ?
                 <FormButtonGroup>
                     {/* <FormButton onPress={handleDelete} > */}
                     <FormButton  onPress={handleForm}>
@@ -248,7 +249,7 @@ function FormReceita({ route, navigation }) {
                     </FormButton>
                 </FormButtonGroup>
                 :
-                <CardInnerTitle>Receita enviada por: {values.user.fullName}</CardInnerTitle>
+                <CardInnerTitle>Receita enviada por: {values.user.email}</CardInnerTitle>
             }
 
             <FormButtonGroup style={{marginBottom:50}}>
